@@ -1,0 +1,102 @@
+.tgdoc-controls {
+  --tgdoc-accent: #2276b5;
+  --tgdoc-soft: rgba(34, 118, 181, 0.09);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 9px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  margin: 7px 0 3px;
+  padding: 0;
+  color: inherit;
+  font: 12px/1.4 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-align: start;
+}
+
+.tgdoc-controls button {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 30px;
+  margin: 0;
+  padding: 5px 11px;
+  border: 1px solid var(--tgdoc-accent);
+  border-radius: 7px;
+  background: var(--tgdoc-soft);
+  color: var(--tgdoc-accent);
+  font: inherit;
+  font-weight: 600;
+  line-height: 1.4;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tgdoc-controls button:hover:not(:disabled) {
+  background: rgba(34, 118, 181, 0.17);
+}
+
+.tgdoc-controls button:focus-visible {
+  outline: 2px solid var(--tgdoc-accent);
+  outline-offset: 3px;
+}
+
+.tgdoc-controls button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.tgdoc-controls .tgdoc-cancel {
+  border-color: currentColor;
+  background: transparent;
+  color: inherit;
+  font-weight: 400;
+}
+
+.tgdoc-controls [hidden] {
+  display: none !important;
+}
+
+.tgdoc-status {
+  flex: 1 1 145px;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  color: inherit;
+  opacity: 0.8;
+}
+
+.tgdoc-status:empty {
+  display: none;
+}
+
+.tgdoc-controls[data-state="error"] .tgdoc-status {
+  color: #b52d36;
+  opacity: 1;
+}
+
+@media (prefers-color-scheme: dark) {
+  .tgdoc-controls {
+    --tgdoc-accent: #82c7ff;
+    --tgdoc-soft: rgba(130, 199, 255, 0.1);
+  }
+  .tgdoc-controls[data-state="error"] .tgdoc-status {
+    color: #ff9ba1;
+  }
+}
+
+.night .tgdoc-controls,
+.theme-dark .tgdoc-controls,
+.dark .tgdoc-controls {
+  --tgdoc-accent: #82c7ff;
+  --tgdoc-soft: rgba(130, 199, 255, 0.1);
+}
+
+.night .tgdoc-controls[data-state="error"] .tgdoc-status,
+.theme-dark .tgdoc-controls[data-state="error"] .tgdoc-status,
+.dark .tgdoc-controls[data-state="error"] .tgdoc-status {
+  color: #ff9ba1;
+}

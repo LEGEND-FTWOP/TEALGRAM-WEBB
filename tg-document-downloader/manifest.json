@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "TG Documents & PDF Downloader",
+  "version": "1.0.0",
+  "description": "Adds document and PDF download buttons to Telegram Web. Works alongside your video and photo extension.",
+  "minimum_chrome_version": "111",
+  "action": {
+    "default_title": "TG Documents & PDF Downloader",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://web.telegram.org/*", "https://webk.telegram.org/*", "https://webz.telegram.org/*"],
+      "js": ["transfer.js", "bridge.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://web.telegram.org/*", "https://webk.telegram.org/*", "https://webz.telegram.org/*"],
+      "js": ["content.js"],
+      "css": ["style.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
